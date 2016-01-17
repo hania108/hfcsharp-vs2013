@@ -54,6 +54,7 @@ namespace Save_the_Humans
                 humanCaptured = false;
                 Start__Button.Visibility = Visibility.Visible;
                 playArea.Children.Add(gameOverText);
+                gameOverText.Visibility = Visibility.Visible;
             }
         }
 
@@ -147,8 +148,8 @@ namespace Save_the_Humans
             {
                 Point pointerPosition = e.GetPosition(null);
                 Point relativePosition = grid.TransformToVisual(playArea).Transform(pointerPosition);
-                if ((Math.Abs(relativePosition.X - Canvas.GetLeft(human)) > human.ActualWidth * 3)
-                    || (Math.Abs(relativePosition.Y - Canvas.GetTop(human)) > human.ActualHeight *3))
+                if ((Math.Abs(relativePosition.X - Canvas.GetLeft(human)) > human.ActualWidth * 0.7)
+                    || (Math.Abs(relativePosition.Y - Canvas.GetTop(human)) > human.ActualHeight * 0.7))
                 {
                     humanCaptured = false;
                     human.IsHitTestVisible = true;
